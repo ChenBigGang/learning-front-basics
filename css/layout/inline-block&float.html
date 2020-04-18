@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>css display 属性测试</title>
+</head>
+<style>
+
+.inline-child{
+    background-color: aqua;
+    display:inline-block;
+    width: 50px;
+    height: 50px;
+}
+
+.inline-child2{
+    background-color: goldenrod;
+    display:inline-block;
+    width: 50px;
+    height: 50px;
+}
+
+.float-child1{
+    background-color: lightcoral;
+    float: left;
+    width:50px;
+    height: 50px;
+}
+
+.float-child2{
+    background-color: lightblue;
+    float: left;
+    width:50px;
+    height: 50px;
+}
+
+.box-float2{
+    overflow: hidden;
+}
+
+.box-inline2{
+    font-size: 0;
+}
+
+
+</style>
+
+<body>
+    <p>display的block把元素设置为盒子模型，inline把元素设置为行内元素，盒子独占一行，可以设置宽高，行内元素不可以设置宽高
+        和其他元素独占一行，宽高有子元素内容撑开。inline-block可以让元素既可以设置宽高，又不独占一行，和float有很多相似之处</p>
+    
+    <h4>inline-block，子元素设置inline-block，会让元素在父容器中平铺</h4>
+    <div class="box-inline">
+        <div class="inline-child"></div>
+        <div class="inline-child2"></div>
+    </div>
+    <h5>
+        可以发现子元素之间有间隙，这是因为标签后面的回车换行符导致的，设置父容器fontsize=0可以消除空格。
+    </h5>
+    <div class="box-inline2">
+        <div class="inline-child"></div>
+        <div class="inline-child2"></div>
+    </div>
+
+    <h4>float 会让元素也在父容器中平铺，但实际上此时子元素已经脱离了文档流，可以发现父元素高度为0</h4>
+    <div class="box-float">
+        <div class="float-child1"></div>
+        <div class="float-child2"></div>
+    </div>
+
+    <div style="clear: both;"></div>
+    <h5>
+        可以使用overflow:hidden 解决父元素的高度坍塌问题  
+    </h5>
+    <div class="box-float2">
+        <div class="float-child1"></div>
+        <div class="float-child2"></div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>flex布局</title>
+</head>
+<style>
+    .flex1 {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .flex-wrap {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        width: 100px;
+    }
+
+    .flex-wrap-reverse {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap-reverse;
+        width: 100px;
+    }
+
+    .flex-justify-content {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-around;
+    }
+
+    .flex-align-items {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: flex-start;
+        border: solid 1px #fc7930;
+        align-items: center;
+    }
+
+    .flex-align-content {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        border: solid 1px #fc7930;
+        width: 150px;
+        height: 200px;
+        align-content: space-between;
+    }
+
+    .item1 {
+        background-color: #66c18c;
+        width: 50px;
+        height: 50px;
+    }
+
+    .item2 {
+        background-color: #a4aca7;
+        width: 50px;
+        height: 50px;
+    }
+
+    .item3 {
+        background-color: #ec2b24;
+        width: 50px;
+        height: 50px;
+    }
+
+    .item4 {
+        background-color: #f6ad8f;
+        width: 50px;
+        height: 100px;
+    }
+
+    .order-item1 {
+        order: 1;
+        background-color: #66c18c;
+        width: 50px;
+        height: 50px;
+    }
+
+    .order-item2 {
+        order: 2;
+        background-color: #a4aca7;
+        width: 50px;
+        height: 50px;
+    }
+</style>
+
+<body>
+    <h2>flex意为“弹性布局”，为盒装模型提供最大的灵活性，任何一个元素都可以指定为flex布局</h3>
+        <h3>flex 布局的可用属性</h3>
+
+        <ul>
+            <li>flex-direction 主轴排列方向</li>
+            <li>flex-wrap 主轴不够是否换行</li>
+            <li>flex-flow 是前面两个的简写</li>
+            <li>justify-content 项目在水平方向上的对齐方式</li>
+            <li>align-items 在同一行中的项目在垂直方向上的对齐方式</li>
+            <li>align-content 当有多行的时候 行在垂直方向上的对齐方式</li>
+        </ul>
+        <div style="margin-left: 30px;">
+            <h4>flex-direction 指定主轴的方向</h4>
+            <div class="flex1">
+                <div class="item1">1</div>
+                <div class="item2">2</div>
+            </div>
+
+            <h4>flex-wrap 指定d当flex主轴方向上宽度不够时是否换行，如果不换行就会 元素按比例平分</h4>
+
+            <div style="float: left; margin-right: 10px;">
+                flex-warp:wrap
+                <div class="flex-wrap">
+                    <div class="item1">1</div>
+                    <div class="item2">2</div>
+                    <div class="item3">3</div>
+                </div>
+            </div>
+
+            <div>
+                flex-warp:wrap-reverse
+                <div class="flex-wrap-reverse">
+                    <div class="item1">1</div>
+                    <div class="item2">2</div>
+                    <div class="item3">3</div>
+                </div>
+            </div>
+
+            <h4>justify-content属性定义元素在主轴上的对齐方式 flex-start/flex-end/center/space-between/space-around</br>
+                比较特殊的是space-around 和space-between 前者每个项目之间的间隔相等，后者 两端的元素对齐主轴的开始和结束，项目之间的间隔相等</h4>
+
+            <div class="flex-justify-content">
+                <div class="item1">1</div>
+                <div class="item2">2</div>
+                <div class="item3">3</div>
+            </div>
+
+            <h4>align-items用来在交叉轴上对齐元素，比如在一行元素内，各个元素高度不统一，那么这一行内的元素该怎么对齐</h4>
+            <ul>
+                <li>flex-start：交叉轴的起点对齐。</li>
+                <li>flex-end：交叉轴的终点对齐。</li>
+                <li>center：交叉轴的中点对齐。</li>
+                <li>baseline: 项目的第一行文字的基线对齐。</li>
+                <li>stretch（默认值）：如果项目未设置高度或设为auto，将占满整个容器的高度。</li>
+            </ul>
+
+            <div class="flex-align-items">
+                <div class="item1">1</div>
+                <div class="item2">2</div>
+                <div class="item3">3</div>
+                <div class="item4">4</div>
+            </div>
+
+            <h4>align-content属性定义了多根轴线的对齐方式。如果项目只有一根轴线，该属性不起作用。也就是当主轴方向上有多行内容的时候</br>
+                这些行在交叉轴方向上该怎么排列。共有六种属性值，可以看到和justify-content属性值高度平行。</br>
+                <strong style="font-size: 20px; color: red;">切记保证垂直轴上有剩余的空间来布局，否则会没有效果</strong>
+            </h4>
+
+            <ul>
+                <li>flex-start：与交叉轴的起点对齐。</li>
+                <li>flex-end：与交叉轴的终点对齐。</li>
+                <li>center：与交叉轴的中点对齐。</li>
+                <li>space-between：与交叉轴两端对齐，轴线之间的间隔平均分布。</li>
+                <li>space-around：每根轴线两侧的间隔都相等。所以，轴线之间的间隔比轴线与边框的间隔大一倍。</li>
+                <li>stretch（默认值）：轴线占满整个交叉轴。</li>
+            </ul>
+
+            <div class="flex-align-content">
+                <div class="item1">1</div>
+                <div class="item2">2</div>
+                <div class="item3">3</div>
+                <div class="item4">4</div>
+            </div>
+        </div>
+
+        <h3>flex 项目上的可用属性</h3>
+        <ul>
+            <li>order 指定项目的显示顺序</li>
+            <li>flex-grow 有剩余空间时，项目占用剩余空间的份数，为0表示不变</li>
+            <li>flex-shrink 空间不足时候，各个项目缩小 为0表示空间不足也不缩小</li>
+            <li>flex-basis 暂时不知道是个咋回事</li>
+            <li>flex 上面三个属性的缩写，grow shrink basis</li>
+            <li>align-self 项目可以覆盖掉 align-items的属性值，自己有自己的在垂直方向上的对齐方式</li>
+        </ul>
+
+        <div style="margin-left: 30px;">
+            <h4>order 指定元素的的顺序</h4>
+            <div class="flex1">
+                <div class="order-item2">2</div>
+                <div class="order-item1">1</div>
+            </div>
+
+
+            <h4>flex-grow，空间充足时候 放大</h4>
+            <p>计算规则：按照grow的比例 分享多余的空间，也就是基本宽度加上按照比例分配的剩余空间</p>
+            <div class="flex1">
+                <div class="item1" style="flex-grow:2;">1</div>
+                <div class="item2" style="flex-grow:1;">2</div>
+                <div class="item3" style="flex-grow:0;">3</div>
+            </div>
+
+            <h4>flex-shrink，空间不足时候 缩小</h4>
+            <p style="width:70%">计算规则： 按照shrink的比例，消耗容器总超出的空间，本例中，每个项目宽度50px，flex宽度110，所以超出了
+            3*50-110=40px,第三个项目shrink为0，所以不会被缩小，那么项目1和2将吸收掉这些超出空间，也就是40px，项目1 shrink为2，项目2 shrink为1
+            那么项目1的宽度为 50-40*2/3=23.33 项目2 的宽度为 50-40*1/3=36.67</p>
+            <div class="flex1" style="width:110px">
+                <div class="item1" style="flex-shrink:2;">1</div>
+                <div class="item2" style="flex-shrink:1;">2</div>
+                <div class="item3" style="flex-shrink:0;">3</div>
+            </div>
+        </div>
+
+
+
+
+</body>
+
+</html>

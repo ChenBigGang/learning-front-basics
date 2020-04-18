@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>grid布局</title>
+</head>
+<style>
+    html,
+    body {
+        width: 100%;
+        height: 100%;
+        background-image: linear-gradient(180deg, #40bfa3, #b3e6da);
+    }
+
+    .grid {
+        display: grid;
+        grid-template-rows: repeat(100px);
+        grid-template-columns: repeat(100px);
+        row-gap: ;
+    }
+</style>
+
+<body>
+    <h2>grid 布局</h2>
+    <h4>grid 容器可用属性</h4>
+    <ul>
+        <li>grid-template-rows 定义行，包括每行的高度，并且可以给每一条线设置名称(1个或者多个),单位可以使用fr表示一份</li>
+        <li>grid-template-columns 定义列，包括每列的宽度，并且可以给每一条线设置名称(1个或者多个)</li>
+        <li>row-gap 行间距</li>
+        <li>column-gap 列间距</li>
+        <li>gap 行间距和列间距的简写</li>
+        <li>grid-template-areas 划定区域，给每个单元格起名字，可以说是划定集合，名称相同的单元格是同一个集合，可以一起引用</li>
+        <li>grid-auto-flow 指定元素放定的顺序，可用的值有 row|column|row dense|column dense 加上dense表示会尽量占满grid 容器</li>
+        <li>justify-items 容器中所有项目在水平方向上的对齐方式</li>
+        <li>align-items 容器中所有项目在垂直方向上的对齐方式</li>
+        <li>place-items 是上面两个属性的简写</li>
+        <li>grid-auto-columns</li>
+        <li>grid-auto-rows 这两个属性用来设置 浏览器自动创建的多余网格的列宽和行高</li>
+        <li>grid-template 是grid-template-columns、grid-template-rows和grid-template-areas的简写</li>
+        <li>grid 是 grid-template-rows grid-template-columns grid-template-areas grid-auto-rows grid-auto-columns
+            grid-auto-flow的简写</li>
+    </ul>
+
+    <h4>gird 项目属性</h4>
+    <ul>
+        <li>grid-column-start</li>
+        <li>grid-column-end</li>
+        <li>grid-row-start</li>
+        <li>grid-row-end  就是指定项目的位置，注意指定的是边框，不是单元格。可以是数字 第几 也可以是名称</br>
+        也可以使用span表示跨域几个单元格  span number 如果项目出现重叠，可以使用z-index来控制层级关系</li>
+        <li>grid-column  grid-column-start和grid-column-end的简写 比如：grid-column:1 / 3 </li>
+        <li>grid-row grid-row-start和grid-row-end的简写  比如：grid-row: 1 / 4</li>
+        <li>grid-area 指定项目存放在哪个区域，grid-template-area 定义的区域，也可以用来简写 column和row 的start和end 四个属性
+            比如 grid-area: 1/1/3/3
+        </li>
+        <li>justify-self 单元格内部的元素水平放置方法</li>
+        <li>align-self 单元格内部的元素垂直放置方法</li>
+        <li>place-self 是上面两个属性的简写</li>
+    </ul>
+    <div class="grid">
+
+    </div>
+</body>
+
+</html>

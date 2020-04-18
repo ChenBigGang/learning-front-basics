@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>css动画
+    </title>
+</head>
+<style>
+    body {
+        text-align: center;
+    }
+
+    .container {
+        height: 150px;
+        width: 150px;
+        background: pink;
+        display: inline-block;
+        transition: 1s height cubic-bezier(.83, .97, .05, 1.44), 1s 1s width;
+    }
+
+    .container:hover {
+        height: 300px;
+        width: 300px;
+    }
+
+    @keyframes rainbow {
+        0% {
+            background: #c00;
+        }
+
+        50% {
+            background: orange;
+        }
+
+        100% {
+            background: yellowgreen;
+        }
+    }
+
+
+    .animation-container {
+        animation: 1s rainbow 3 forwards;
+        height: 150px;
+        width: 150px;
+        background: palegoldenrod;
+        display: inline-block;
+    }
+
+    .transform-container {
+        height: 150px;
+        width: 150px;
+        background: rosybrown;
+        display: inline-block;
+    }
+
+    .translateX100 {
+        transform: translateX(100px);
+        transform-origin: -100px;
+        transition: 2s all ease-in-out;
+    }
+
+    .transform-button {
+        width: 20px;
+        height: 15px;
+        background: hotpink;
+        display: block;
+    }
+</style>
+
+<body>
+    <div class="container">
+        transition测试
+    </div>
+
+    <div class="animation-container">
+        animation测试
+    </div>
+
+    <div class="transform-container" id="transform-container">
+        transfom测试
+    </div>
+
+    <button class="transform-button" onclick="handleClick()" />
+
+    <script>
+        function handleClick(event) {
+            var ele = document.getElementById("transform-container");
+            ele.classList.add("translateX100");
+        }
+    </script>
+
+</body>
+
+</html>

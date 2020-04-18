@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+    #bt {
+        height: 100px;
+        width: 100px;
+        background-color: aqua;
+    }
+</style>
+
+<head>
+
+</head>
+
+<body>
+
+    <button id="bt">
+        load
+    </button>
+
+    <p id="show">
+
+    </p>
+
+    <script>
+        //创建一个script标签
+        function loadScriptString(code) {
+            debugger;
+            var script = document.createElement("script"); //创建一个script标签
+            script.type = "text/javascript";
+            script.setAttribute("id","ddddd");
+            try {
+                //IE浏览器认为script是特殊元素,不能再访问子节点;报错;
+                script.appendChild(document.createTextNode(code));
+            } catch (ex) {
+                script.text = code;
+            }
+            document.getElementsByTagName('head')[0].appendChild(script);
+        }
+        window.onload = function () {
+            var obt = document.getElementById("bt"); //获得ID
+            var str = "var odiv=document.getElementById('show');"
+            str = str + "odiv.innerHTML='蚂蚁部落欢迎您'"
+            obt.onclick = function () {
+                loadScriptString(str);
+            }
+        }
+    </script>
+</body>
+
+</html>
