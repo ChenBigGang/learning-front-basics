@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>隐藏滚动条,火狐和谷歌</title>
+</head>
+<style>
+    .body {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        height: 100vh;
+    }
+
+    .firefox-container {
+        width: 40vw;
+        height: 50vh;
+        overflow-y: scroll;
+        scrollbar-width: none;
+    }
+
+    .google-container {
+        width: 40vw;
+        height: 50vh;
+        overflow-y: scroll;
+    }
+
+    .google-container::-webkit-scrollbar {
+        width: 0;
+    }
+
+    .content {
+        height: 100vh;
+        background: linear-gradient(0deg, blue, turquoise);
+    }
+</style>
+
+<body>
+    <div class="body">
+        <div class="firefox-container">
+            <div class="content">
+            </div>
+        </div>
+
+        <div class="google-container">
+            <div class="content">
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
